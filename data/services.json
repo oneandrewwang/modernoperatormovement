@@ -1,0 +1,77 @@
+{
+  "_schema": {
+    "description": "Each service entry has these fields. Add new entries to the 'services' array below.",
+    "fields": {
+      "name": "Service/company name (required)",
+      "category": "One of: F&B Tech, AI, HR, Other (required)",
+      "description": "One-liner about what they do (required)",
+      "url": "Website URL (optional, leave empty string if none)",
+      "contact": "Contact name or email (optional)",
+      "recommended_by": "Who in MOM recommended this (optional)",
+      "tags": "Array of short keywords for searchability (optional)",
+      "featured": "Set to true to highlight at the top (optional, default false)"
+    }
+  },
+  "services": [
+    {
+      "name": "Dekopon AI",
+      "category": "AI",
+      "description": "AI voice agents that answer every customer call — resolves issues, captures leads, sends instant summaries.",
+      "url": "https://dekopon.ai/products/support",
+      "contact": "",
+      "recommended_by": "",
+      "tags": ["AI", "voice", "customer support", "phone", "automation"],
+      "featured": true
+    },
+    {
+      "name": "Elaiksir",
+      "category": "F&B Tech",
+      "description": "Automated matcha and hojicha execution with direct-sourced Uji supply — consistency, speed, and scalable margin.",
+      "url": "https://elaiksir.io",
+      "contact": "",
+      "recommended_by": "",
+      "tags": ["matcha", "hojicha", "beverage automation", "café", "tea"],
+      "featured": true
+    },
+    {
+      "name": "Gusto",
+      "category": "HR",
+      "description": "Payroll, benefits, and HR for small businesses. Runs in minutes, handles tax filing, onboarding, and compliance.",
+      "url": "https://gusto.com",
+      "contact": "",
+      "recommended_by": "",
+      "tags": ["payroll", "HR", "benefits", "tax filing", "onboarding"],
+      "featured": true
+    },
+    {
+      "name": "OpenClaw",
+      "category": "AI",
+      "description": "Open-source personal AI assistant that runs on your devices. Manages email, calendar, and tasks via WhatsApp, Telegram, or Slack.",
+      "url": "https://openclaw.ai",
+      "contact": "",
+      "recommended_by": "",
+      "tags": ["AI agent", "open source", "automation", "personal assistant", "WhatsApp"],
+      "featured": true
+    },
+    {
+      "name": "Claude",
+      "category": "AI",
+      "description": "Anthropic's AI assistant. Thoughtful, capable, and great for writing, analysis, coding, and complex reasoning.",
+      "url": "https://claude.ai",
+      "contact": "",
+      "recommended_by": "",
+      "tags": ["AI", "LLM", "writing", "analysis", "coding", "Anthropic"],
+      "featured": true
+    },
+    {
+      "name": "Perplexity",
+      "category": "AI",
+      "description": "AI-powered answer engine. Ask anything and get cited, real-time answers from across the web.",
+      "url": "https://perplexity.ai",
+      "contact": "",
+      "recommended_by": "",
+      "tags": ["AI", "search", "research", "answers", "citations"],
+      "featured": true
+    }
+  ]
+}
