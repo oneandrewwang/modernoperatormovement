@@ -430,16 +430,97 @@
 
   <!-- ====== CTA / APPLICATION ====== -->
   <section class="cta-section" id="cta">
-    <div class="container reveal">
-      <p class="overline">The Movement</p>
-      <h2 class="section-heading">Operators Helping Operators</h2>
-      <p class="body-large">If you're a restaurant owner-operator who's tired of flying blind, we built this for you. Tell us about yourself.</p>
-      <div class="cta-buttons">
-        <a href="mailto:hello@modernoperatormovement.com" class="btn-primary">Request an Invite</a>
-        <a href="mailto:hello@modernoperatormovement.com?subject=Nomination" class="btn-secondary">Nominate an Operator</a>
+    <div class="container">
+      <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto var(--space-xl);">
+        <p class="overline">Join the Movement</p>
+        <h2 class="section-heading">Request an Invite</h2>
+        <p class="body-large">MOM is invite-only. Every member is vetted. Tell us about yourself and Andrew will be in touch.</p>
+      </div>
+      <div class="join-form-wrap reveal">
+        <form id="momJoinForm" class="join-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="f-name">Your Name *</label>
+              <input type="text" id="f-name" name="name" required placeholder="First + Last">
+            </div>
+            <div class="form-group">
+              <label for="f-email">Email *</label>
+              <input type="email" id="f-email" name="email" required placeholder="you@restaurant.com">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="f-restaurant">Restaurant / Company</label>
+              <input type="text" id="f-restaurant" name="restaurant" placeholder="Your restaurant name">
+            </div>
+            <div class="form-group">
+              <label for="f-location">City</label>
+              <input type="text" id="f-location" name="location" placeholder="San Francisco, CA">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="f-role">Your Role</label>
+              <select id="f-role" name="role">
+                <option value="">Select...</option>
+                <option>Owner / Operator</option>
+                <option>GM / Director of Ops</option>
+                <option>Multi-unit Operator</option>
+                <option>Franchisee</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="f-referral">Referred by</label>
+              <input type="text" id="f-referral" name="referral" placeholder="Who referred you?">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="f-message">Anything else?</label>
+            <textarea id="f-message" name="message" placeholder="Tell us about your operation..."></textarea>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn-primary btn-full" id="momSubmitBtn">Request an Invite →</button>
+          </div>
+          <p class="form-note">Vendors cannot join. Every applicant is personally reviewed.</p>
+        </form>
+        <div id="momFormSuccess" class="form-success" style="display:none;">
+          <div class="form-success-inner">
+            <div class="form-success-icon">✓</div>
+            <h3>Got it!</h3>
+            <p>Andrew will review your request and be in touch soon.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
+  <script>
+  (function(){
+    var FORM_URL = "https://drawing-shorts-alphabetical-organisation.trycloudflare.com/submit";
+    document.getElementById("momJoinForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      var btn = document.getElementById("momSubmitBtn");
+      btn.textContent = "Sending..."; btn.disabled = true;
+      var fd = new FormData(this);
+      var data = {};
+      fd.forEach(function(v,k){ data[k]=v; });
+      fetch(FORM_URL, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(data)
+      }).then(function(r){
+        if(r.ok){
+          document.getElementById("momJoinForm").style.display = "none";
+          document.getElementById("momFormSuccess").style.display = "flex";
+        } else {
+          btn.textContent = "Error — try again"; btn.disabled = false;
+        }
+      }).catch(function(){
+        btn.textContent = "Error — try again"; btn.disabled = false;
+      });
+    });
+  })();
+  </script>
 
 </main>
 
